@@ -1,0 +1,39 @@
+{
+  "tracks": [
+    {
+      "id": 1,
+      "title": "Love You With All My Heart",
+      "singer": "Crush",
+      "thumb": "https://i.scdn.co/image/ab67616d0000b2737533b658892e7b8dcfdaecb7",
+      "pathSong": "love_you_with_all_my_hear.mp3"
+    },
+    {
+      "id": 2,
+      "title": "The Reasons of My Smiles",
+      "singer": "BSS",
+      "thumb": "https://i.scdn.co/image/ab67616d0000b273afb07f97c4d9bce09e2f0bb0",
+      "pathSong": "the_reasons_of_my_smiles.mp3"
+    },
+    {
+      "id": 3,
+      "title": "Tell Me It's Not a Dream",
+      "singer": "10Cm",
+      "thumb": "https://i.scdn.co/image/ab67616d0000b27388f23e79668054ace56ee007",
+      "pathSong": "tell_me_its_not_a_dream.mp3"
+    },
+    {
+      "id": 4,
+      "title": "Hold Me Back",
+      "singer": "HEIZE",
+      "thumb": "https://i.scdn.co/image/ab67616d0000b273d51a6c42b876967fd96fcc52",
+      "pathSong": "hold_me_back.mp3"
+    },
+    {
+      "id": 5,
+      "title": "Fallin",
+      "singer": "Isaac Hong",
+      "thumb": "https://i.scdn.co/image/ab67616d0000b273b4bc9535d0a67a36f5f3a509",
+      "pathSong": "fall_in.mp3"
+    }
+  ]
+}
