@@ -1,4 +1,4 @@
-package com.spomyfy
+package app.test.noti
 
 import android.app.Application
 import com.facebook.react.PackageList

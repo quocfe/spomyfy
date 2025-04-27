@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import {
   FlatList,
   Image,
+  Platform,
   ScrollView,
   StyleSheet,
   View,
@@ -15,11 +16,17 @@ import {playListRecent} from '../data';
 import {BORDERRADIUS, COLORS, SPACING} from '../theme/theme';
 import {TrackType} from '../types';
 import {trackStore, tracksStore} from '../zustand/tracksStore';
+import {PermissionsAndroid} from 'react-native';
+import { useToast } from 'react-native-toast-notifications';
+import messaging from '@react-native-firebase/messaging';
+
 
 const HomeScreen = ({navigation}: any) => {
   const {width} = useWindowDimensions();
   const {setTracks} = tracksStore();
   const {setTrack} = trackStore();
+  const toast = useToast(); // Khởi tạo toast
+
   const {data: tracksList} = useQuery({
     queryKey: ['tracks'],
     queryFn: async () => {
@@ -32,6 +39,25 @@ const HomeScreen = ({navigation}: any) => {
       setTracks(tracksList);
     }
   }, [tracksList, setTracks]);
+
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      const title = remoteMessage.notification?.title || 'Thông báo';
+      const body = remoteMessage.notification?.body || '';
+
+    
+      toast.show('', {
+        title,
+        body,
+        type: 'normal',
+      });
+    });
+
+
+    return () => {
+     unsubscribe(); // Hủy đăng ký khi component unmount
+    };
+  }, [toast]); // Rất quan trọng: thêm dependency là toast
 
   const handleClickTrack = (track: TrackType) => {
     setTrack(track);
@@ -156,3 +182,4 @@ const styles = StyleSheet.create({
     gap: SPACING.space_24,
   },
 });
+
